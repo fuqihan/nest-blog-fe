@@ -1,0 +1,246 @@
+// 长度
+$W1 : 1200px;
+
+// 别名
+$basic-width : $W1;
+
+$basic-left : 39px;
+
+$basic-right : 30px;
+
+$basi-top : 20px;
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+div.el-message-box{
+  width:410px;
+}
+
+.clearfix:after{
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+.clearfix{
+  zoom:1;
+}
+
+li {
+  list-style-type: none;
+}
+
+//字体
+.font-12 {
+  font-size: 12px!important;
+}
+
+.font-14{
+  font-size: 14px!important;
+}
+
+.font-16{
+  font-size: 16px!important;
+}
+
+.font-18{
+  font-size: 18px!important;
+}
+
+.font-20{
+  font-size: 20px!important;
+}
+
+//内边距
+.pdt-10{
+  padding-top: 10px!important;
+}
+.pdt-20{
+  padding-top: 20px!important;
+}
+.pdt-30{
+  padding-top: 30px!important;
+}
+.pdt-50{
+  padding-top: 50px!important;
+}
+
+
+.pdb-10{
+  padding-bottom: 10px!important;
+}
+.pdb-20{
+  padding-bottom: 20px!important;
+}
+.pdb-30{
+  padding-bottom: 30px!important;
+}
+.pdb-50{
+  padding-bottom: 50px!important;
+}
+
+.pdl-5{
+  padding-left: 5px!important;
+}
+
+.pdl-10{
+  padding-left: 10px!important;
+}
+.pdl-20{
+  padding-left: 20px!important;
+}
+.pdl-30{
+  padding-left: 30px!important;
+}
+.pdl-50{
+  padding-left: 50px!important;
+}
+
+.pdr-5{
+  padding-right: 5px!important;
+}
+
+.pdr-10{
+  padding-right: 10px!important;
+}
+.pdr-20{
+  padding-right: 20px!important;
+}
+.pdr-30{
+  padding-right: 30px!important;
+}
+.pdr-50{
+  padding-right: 50px!important;
+}
+
+//外边距
+.mgt-5{
+  margin-top: 5!important;
+}
+
+.mgt-10{
+  margin-top: 10px!important;
+}
+.mgt-20{
+  margin-top: 20px!important;
+}
+.mgt-30{
+  margin-top: 30px!important;
+}
+.mgt-40{
+  margin-top: 40px!important;
+}
+.mgt-50{
+  margin-top: 50px!important;
+}
+
+.mgb-10{
+  margin-bottom: 10px!important;
+}
+.mgb-20{
+  margin-bottom: 20px!important;
+}
+.mgb-30{
+  margin-bottom: 30px!important;
+}
+.mgb-40{
+  margin-bottom: 40px!important;
+}
+.mgb-50{
+  margin-bottom: 50px!important;
+}
+
+.mgl-10{
+  margin-left: 10px!important;
+}
+.mgl-15{
+  margin-left: 15px!important;
+}
+.mgl-20{
+  margin-left: 20px!important;
+}
+.mgl-30{
+  margin-left: 30px!important;
+}
+.mgl-40{
+  margin-left: 40px!important;
+}
+.mgl-50{
+  margin-left: 50px!important;
+}
+
+.mgr-5{
+  margin-right: 5px!important;
+}
+.mgr-10{
+  margin-right: 10px!important;
+}
+.mgr-15{
+  margin-right: 15px!important;
+}
+.mgr-20{
+  margin-right: 20px!important;
+}
+.mgr-30{
+  margin-right: 30px!important;
+}
+.mgr-40{
+  margin-right: 40px!important;
+}
+.mgr-50{
+  margin-right: 50px!important;
+}
+
+//浮动
+.float-left{
+  float: left!important;
+}
+.float-right{
+  float: right!important;
+}
+
+//清除浮动
+.overflow-hidden{
+  overflow: hidden!important;
+}
+
+//换行
+.wrap{
+  white-space: pre-line;
+  word-break: break-all;
+}
+
+//不换行
+.nowrap{
+  white-space: nowrap!important;
+}
+
+.text-right{
+  text-align: right;
+}
+.text-left{
+  text-align: left;
+}
+.text-center{
+  text-align: center;
+}
