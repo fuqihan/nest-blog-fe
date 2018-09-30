@@ -16,6 +16,7 @@ import { NgZorroAntdModule, NZ_I18N, zh_CN } from "ng-zorro-antd";
 import zh from "@angular/common/locales/zh";
 
 import { HomeComponent } from "./pages/home/home.component";
+import { GraphQLModule } from './graphql.module';
 
 registerLocaleData(zh);
 
@@ -26,7 +27,8 @@ registerLocaleData(zh);
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    GraphQLModule
     // HttpClientInMemoryWebApiModule.forRoot(
     //   InMemoryDataService, { dataEncapsulation: false }
     // )
