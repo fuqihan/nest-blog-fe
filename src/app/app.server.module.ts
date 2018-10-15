@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
-import { ServerModule } from '@angular/platform-server';
-import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
+import {ModuleMapLoaderModule} from '@nguniversal/module-map-ngfactory-loader';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
+import { CookieService } from './shared/lib/cookies/cookie.service';
+import { CookieBackendService } from './shared/lib/cookies/cookie-backend.service';
 
 @NgModule({
   imports: [
     AppModule,
     ServerModule,
-    ModuleMapLoaderModule
+    ModuleMapLoaderModule,
+    ServerTransferStateModule
   ],
   providers: [
-    // Add universal-only providers here
+    { provide: CookieService, useClass: CookieBackendService } // Use only if not prerender
   ],
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
 })
-export class AppServerModule {}
+export class AppServerModule {
+}

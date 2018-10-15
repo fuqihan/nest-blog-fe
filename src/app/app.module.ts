@@ -1,50 +1,50 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { TransferHttpCacheModule } from '@nguniversal/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
+import { MetaModule } from '@ngx-meta/core';
 
-import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
-
-import { AppRoutingModule } from "./app-routing.module";
-
-import { AppComponent } from "./app.component";
-
-import { PLATFORM_ID, APP_ID, Inject } from "@angular/core";
-import { isPlatformBrowser, registerLocaleData } from "@angular/common";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from "ng-zorro-antd";
-import zh from "@angular/common/locales/zh";
-
-import { HomeComponent } from "./pages/home/home.component";
-import { GraphQLModule } from './graphql.module';
-
-registerLocaleData(zh);
+import { AppComponent } from './app.component';
+import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app.routing';
+import { CookieModule } from './shared/lib/cookies/cookie.module';
+import { CoreModule } from './core/core.module';
+import { StateModule } from './state/state.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { ComponentResolverModule } from './shared/directives/component-resolver/component-resolver.module';
+import { AuthInterceptor } from './core/interceptors/auth/auth.interceptor';
 
 @NgModule({
-  imports: [
-    BrowserModule.withServerTransition({ appId: "tour-of-heroes" }),
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NgZorroAntdModule,
-    GraphQLModule
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: false }
-    // )
+  declarations: [
+    AppComponent,
   ],
-  declarations: [AppComponent, HomeComponent],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  imports: [
+    BrowserModule.withServerTransition({ appId: environment.appId }),
+    BrowserTransferStateModule,
+    HttpClientModule,
+    NgProgressModule.forRoot(),
+    NgProgressHttpModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    MetaModule.forRoot(),
+    CookieModule.forRoot(),
+    CoreModule.forRoot(),
+    StateModule.forRoot(),
+    TransferHttpCacheModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    AppRoutingModule,
+    DashboardModule,
+    ComponentResolverModule,
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(APP_ID) private appId: string
-  ) {
-    const platform = isPlatformBrowser(platformId)
-      ? "in the browser"
-      : "on the server";
-    console.log(`Running ${platform} with appId=${appId}`);
-  }
 }

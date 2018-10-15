@@ -1,38 +1,18 @@
-import { Component, OnInit } from "@angular/core";
-import gql from "graphql-tag";
-import { Apollo } from "apollo-angular";
-import { Observable } from "rxjs";
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/index';
+import { LayoutService } from './core/services/layout/layout.service';
+
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: 'app-root',
+  template: `
+    <ng-progress [color]="'#4286f4'" [spinner]="false"></ng-progress>
+    <ng-template appComponentResolver [component]="layout$ | async"></ng-template>
+  `,
 })
-export class AppComponent implements OnInit {
-  title = "fuqihan";
-
-  constructor(private apollo: Apollo) {}
-
-  ngOnInit() {
-    try {
-      this.apollo
-      .query({
-        query: gql`
-          {
-            cat(id: 1) {
-              id
-              name
-            }
-          }
-        `
-      })
-      .subscribe(
-        data => {
-          console.log(data);
-        },
-        e => console.log("error: " + e)
-      ); 
-    } catch (error) {
-      console.log(error)
-    }
+export class AppComponent {
+  layout$: Observable<any>;
+  constructor(private layoutService: LayoutService) {
+    this.layout$ = layoutService.layout$;
   }
+
 }
