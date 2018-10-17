@@ -95,6 +95,27 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/test-ng-pwa-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          }
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "test-ng-pwa:build",
+            "serverTarget": "test-ng-pwa:server",
+            "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "test-ng-pwa:build:production"
+            }
+          }
         }
       }
     },

@@ -11,16 +11,16 @@ export class AppComponent {
   title = 'test-ng-pwa';
   constructor(private apollo: Apollo) {}
   ngOnInit() {
-    this.apollo
-      .watchQuery({
-        query: gql`
-          {
-            hello
-          }
-        `,
-      })
-      .valueChanges.subscribe(result => {
-        console.log(result);
-      });
+    // this.apollo
+    //   .watchQuery({
+    //     query: gql`
+    //       {
+    //         hello
+    //       }
+    //     `,
+    //   })
+    //   .valueChanges.subscribe(result => {
+    //     console.log(result);
+    //   });
   }
 }
