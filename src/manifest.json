@@ -1,6 +1,6 @@
 {
-  "name": "FoodShot",
-  "short_name": "FoodShot",
+  "name": "test-ng-pwa",
+  "short_name": "test-ng-pwa",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

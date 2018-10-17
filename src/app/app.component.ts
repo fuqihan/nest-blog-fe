@@ -1,18 +1,26 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs/index';
-import { LayoutService } from './core/services/layout/layout.service';
+import {Apollo} from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <ng-progress [color]="'#4286f4'" [spinner]="false"></ng-progress>
-    <ng-template appComponentResolver [component]="layout$ | async"></ng-template>
-  `,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  layout$: Observable<any>;
-  constructor(private layoutService: LayoutService) {
-    this.layout$ = layoutService.layout$;
+  title = 'test-ng-pwa';
+  constructor(private apollo: Apollo) {}
+  ngOnInit() {
+    this.apollo
+      .watchQuery({
+        query: gql`
+          {
+            hello
+          }
+        `,
+      })
+      .valueChanges.subscribe(result => {
+        console.log(result);
+      });
   }
-
 }
