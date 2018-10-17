@@ -1,27 +1,64 @@
-# TestNgPwa
+# angular-starter
+- Date : 08/10/2018 10:44
+- Author : chendra
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
+# Demo
+https://angular.ganatan.com/
 
-## Development server
+# Goal
+- Angular Project (v 6.1.9)
+- SSR (server side rendering)
+- Routing
+- Lazy-loading
+- Bootstrap (v 4.1.3)
+- httpclient
+- Transferstate
+- PWA
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Prerequisites
+- Angular / Version 6.1.9
+- Angular-cli / Version 6.2.4
+- Angular-universal / Version 6.1.0
+- Node.js / Version v8.12.0
+- npm / Version 6.4.1
+- Typescript / Version 2.9.2
+- Visual studio code / Version 1.27.2
+- Boostrap / Version 4.1.3
+- Jquery / Version 3.3.1
+- fontawesome / Version 4.7.0
 
-## Code scaffolding
+# Installation
+- npm install (installing dependencies)
+- npm outdated (verifying dependencies)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Developpement
+- npm run start
+- http://localhost:4200
 
-## Build
+# AOT Compilation 
+- npm run build
+- http-server -p 8080 -c-1 dist/Browser 
+- http://localhost:8080/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Tests
+- npm run lint
+- npm run test
+- npm run e2e
 
-## Running unit tests
+# SSR Compilation 
+- npm run build:ssr (ssr compilation )
+- compiled Browser files in output directory : dist/Browser
+- compiled Server files in output directory : dist/Server 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# SSR Production
+- npm run serve:ssr
+- http://localhost:4001
 
-## Running end-to-end tests
+# Tutoriaux
+- https://www.ganatan.com/docs
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# Ubuntu deployment
+- pm2 start process.config.js --env prod
+- sudo scp nginx.conf /etc/nginx
+- sudo service nginx restart
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
